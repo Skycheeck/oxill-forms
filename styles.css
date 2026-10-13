@@ -593,7 +593,20 @@
 }
 
 .oxf-author-copy { min-width: 0; }
-.oxf-author-copy h3 { margin: 0 0 3px; padding: 0; font-size: var(--font-ui-medium); }
+
+/* `Setting.setHeading()` добавляет полноценную строку настройки. Внутри
+   компактной карточки её системные отступы сдвигают заголовок вправо и
+   разрывают общую ось с подписью, поэтому оставляем от строки только имя. */
+.oxf-author-copy > .setting-item {
+    min-height: 0;
+    margin: 0 0 3px;
+    padding: 0;
+    border: 0;
+}
+
+.oxf-author-copy > .setting-item::before { content: none; }
+.oxf-author-copy .setting-item-info { margin: 0; }
+.oxf-author-copy .setting-item-name { font-size: var(--font-ui-medium); }
 .oxf-author-copy p { margin: 0; color: var(--text-muted); line-height: 1.45; }
 .oxf-social-links { display: flex; flex: 0 0 auto; gap: 8px; }
 
